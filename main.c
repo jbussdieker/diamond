@@ -1,6 +1,13 @@
-#include <GL/glut.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
+#ifdef __APPLE__
+	#include <OpenGL/gl.h>
+	#include <OpenGL/glu.h>
+	#include <GLUT/glut.h>
+#else
+	#include <GL/glut.h>
+	#include <GL/gl.h>
+	#include <GL/glu.h>
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -232,7 +239,7 @@ int main(int argc, char **argv)
     glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_ALPHA | GLUT_DEPTH);  
     glutInitWindowSize(640, 480);  
     glutInitWindowPosition(0, 0);  
-    window = glutCreateWindow("Jeff Molofee's GL Code Tutorial ... NeHe '99");  
+    window = glutCreateWindow("Diamond");  
     glutDisplayFunc(&DrawGLScene);  
     glutFullScreen();
     glutIdleFunc(&DrawGLScene);
